@@ -51,7 +51,7 @@ export default function KnowledgeGraphView({ initialNodes, initialEdges, onNodeC
         <Background color="#334155" gap={20} />
         <Controls className="!bg-slate-900 !border-slate-700" />
         <MiniMap 
-          nodeColor={(n) => ((n.data as NodeData)?.centrality > 0.3 ? '#818cf8' : '#475569')} 
+          nodeColor={(n) => ((n.data as unknown as NodeData)?.centrality > 0.3 ? '#818cf8' : '#475569')}
           className="!bg-slate-900 !border-2 !border-slate-700"
           maskColor="rgba(15, 23, 42, 0.7)"
         />
