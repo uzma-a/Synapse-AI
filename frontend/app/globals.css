@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+html, body, #__next, *:root {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.react-flow__controls-button { background: #1e293b; border-bottom: 1px solid #334155; }
+.react-flow__controls-button svg { fill: #e2e8f0; }
+.react-flow__controls-button:hover { background: #334155; }
+
+/* --- React Flow Controls Customization --- */
+
+/* 1. The main container of the controls */
+.react-flow__controls {
+  border: 1px solid #475569 !important; /* slate-600 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 2. The individual buttons inside the controls */
+.react-flow__controls-button {
+  background: #1e293b !important; /* slate-800 */
+  color: #f8fafc !important; /* slate-50 */
+  border-bottom: 1px solid #334155 !important; /* slate-700 */
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* 3. Hover effect for the buttons */
+.react-flow__controls-button:hover {
+  background: #4f46e5 !important; /* indigo-600 */
+  color: white !important;
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* 4. Force the SVG icons inside the buttons to be bright white */
+.react-flow__controls-button svg {
+  fill: #f8fafc !important;
+  stroke: #f8fafc !important;
+}
