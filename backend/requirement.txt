@@ -1,0 +1,25 @@
+# Core Framework
+fastapi==0.111.0
+uvicorn==0.29.0
+pydantic==2.7.1
+
+# AI & LLM Orchestration
+instructor==1.3.0
+google-generativeai==0.7.2
+
+# Vector Embeddings & Machine Learning
+sentence-transformers==2.7.0
+numpy==1.26.4
+
+# Graph Theory & Mathematics
+networkx==3.3
+
+# Database (Async MongoDB)
+motor==3.6.0
+
+# Utilities & Environment
+python-dotenv==1.0.1
+
+# Document Parsing 
+pdfplumber==0.11.2
+PyPDF2==3.0.1
