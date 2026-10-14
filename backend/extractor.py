@@ -8,7 +8,7 @@ from typing import List
 # Global variable to hold the model once it's loaded
 _embed_model = None
 
-genai.configure(api_key="YOUR_GEMINI_API_KEY")
+genai.configure(api_key="GEMINI_API_KEY")
 model = genai.GenerativeModel("gemini-3.8-flash") # Use your working model name
 
 client = instructor.from_gemini(
