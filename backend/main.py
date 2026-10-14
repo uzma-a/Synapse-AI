@@ -24,6 +24,9 @@ async def extract_graph(request: ExtractionRequest):
         kg = ConceptExtractor.extract_graph(request.text)
         rf_data = GraphEngine.generate_react_flow_data(kg)
         
+        descriptions = [n["data"].get("description", "") for n in rf_data["nodes"]]
+        session_store["descriptions"] = descriptions
+        session_store["embeddings"] = ConceptExtractor.get_embeddings(descriptions)
         # Save as a new session with the text preview
         try:
             await DBManager.save_graph("default_user", rf_data, request.text)
