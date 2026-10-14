@@ -76,7 +76,7 @@ async def search_concepts(request: SearchRequest):
 if __name__ == "__main__":
     import uvicorn
     import os
-    
-    # Render provides the PORT environment variable automatically
-    port = int(os.environ.get("PORT", 8000)) 
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    # Use a simple print to prove the server is actually starting
+    print("--- 🚀 SERVER STARTING NOW ---") 
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
