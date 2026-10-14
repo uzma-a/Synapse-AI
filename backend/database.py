@@ -8,14 +8,17 @@ load_dotenv()
 class DBManager:
     @staticmethod
     def get_db():
-        # We create the client and the db inside the function EVERY time
-        # This ensures the server starts instantly and only connects when needed
         uri = os.getenv("MONGO_URI")
         if not uri:
+            print("--- ❌ ERROR: MONGO_URI is missing from Environment Variables! ---")
             raise ValueError("MONGO_URI environment variable is not set!")
         
-        client = AsyncIOMotorClient(uri)
-        return client.synapse_db
+        try:
+            client = AsyncIOMotorClient(uri)
+            return client.synapse_db
+        except Exception as e:
+            print(f"--- ❌ ERROR: Could not connect to MongoDB: {e} ---")
+            raise e
 
     @staticmethod
     async def save_graph(user_id: str, graph_data: dict, original_text: str = ""):

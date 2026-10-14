@@ -76,7 +76,19 @@ async def search_concepts(request: SearchRequest):
 if __name__ == "__main__":
     import uvicorn
     import os
-    # Use a simple print to prove the server is actually starting
-    print("--- 🚀 SERVER STARTING NOW ---") 
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
+    import traceback # Import this to see the full error trace
+
+    print("--- 🚀 ATTEMPTING TO START SERVER ---")
+    try:
+        port = int(os.environ.get("PORT", 8000))
+        print(f"--- 🌐 Binding to port: {port} ---")
+        
+        # We use the string "main:app" to be as stable as possible
+        uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
+        
+    except Exception as e:
+        print("--- ❌ CRITICAL SERVER CRASH ---")
+        print(traceback.format_exc()) # This prints the EXACT line that caused the crash
+        # Keep the process alive for a few seconds so Render captures the log
+        import time
+        time.sleep(10)
