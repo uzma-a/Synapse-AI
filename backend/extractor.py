@@ -12,7 +12,7 @@ model = genai.GenerativeModel("gemini-3.8-flash")
 
 client = instructor.from_gemini(
     client=model,
-    mode=instructor.Mode.GEMINI_TOOLS,
+    mode=instructor.Mode.GEMINI_JSON,
 )
 
 class ConceptExtractor:
